@@ -1,28 +1,13 @@
 # Docker file for python simple webservice build
 
 FROM ubuntu:18.04
-MAINTAINER Shohei Mukai
+MAINTAINER Web Engineering TU Wien
 
 RUN apt-get update
 RUN apt-get -y install apache2
 
-# Python2.7
-RUN apt-get -y install python2.7
-RUN apt-get -y install libmysqlclient-dev
+# Ad-hoc editing
 RUN apt-get -y install vim
-RUN apt-get -y install python-pip
-
-# Python3.6
-RUN apt-get -y install python3.6
-RUN apt-get -y install python3.6-dev python3-distutils
-RUN apt-get -y install wget
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN python3.6 get-pip.py
-
-# Python3.7
-RUN apt-get -y install python3.7
-RUN apt-get -y install python3.7-dev
-RUN python3.7 get-pip.py
 
 # Python3.8
 RUN apt-get -y install python3.8
@@ -40,6 +25,7 @@ RUN mkdir -p /production/www/cgi-bin
 RUN mkdir -p /production/www/lib
 COPY cgi-bin /production/www/cgi-bin
 COPY lib /production/www/lib
+COPY public_html /var/www/html
 COPY apache2 /etc/apache2
 RUN ln -s /etc/apache2/mods-available/cgi.load /etc/apache2/mods-enabled/cgi.load
 
