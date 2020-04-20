@@ -14,7 +14,7 @@ print("Content-type: text/html")
 print("\n")
 print("<html>")
 until = 100
-print("<h1>Prime Numbers until " + until + "</h1>")
+print("<h1>Prime Numbers until " + str(until) + "</h1>")
 for number in primes(until):
     print('<span style="border: 1px solid red; padding: 5px; margin: 5px">')
     print(number)
