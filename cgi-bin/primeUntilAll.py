@@ -23,7 +23,6 @@ def html(until):
     print("Content-type: text/html")
     print("\n")
     print("<html>")
-    print(cgi.parse_header('application/json'))
     print("<h1>Prime Numbers until " + str(until) + "</h1>")
     for number in primes(until):
         print('<span style="border: 1px solid red; padding: 5px; margin: 10px; line-height: 4em;">')
